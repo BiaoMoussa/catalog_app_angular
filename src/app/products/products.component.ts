@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { Observable, of } from 'rxjs';
 import { Product } from '../Model/product.model';
+import { AuthentificationService } from '../services/authentification.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -18,7 +21,8 @@ export class ProductsComponent implements OnInit {
   pageSize : number = 5;
   totalPages : number = 0;
   currentAction : string="all";
-  constructor(private productService :ProductService, private fb :FormBuilder) { }
+  constructor(private productService :ProductService, private fb :FormBuilder, 
+              public authService : AuthentificationService  , private router : Router  ) { }
 
   ngOnInit(): void {
    this.searchFormGroup = this.fb.group({
@@ -104,4 +108,12 @@ export class ProductsComponent implements OnInit {
       this.handleSearchProducts();
   }
   
+
+  handleNewProduct(){
+      this.router.navigateByUrl("/admin/newProduct");
+  }
+
+  handleEditProduct(p : Product){
+    this.router.navigateByUrl("/admin/editProduct/" +p.id);
+  }
 }

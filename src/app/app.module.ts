@@ -6,17 +6,30 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AdminTemplateComponent } from './admin-template/admin-template.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { NewProductComponent } from './new-product/new-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    CustomersComponent
+    CustomersComponent,
+    LoginComponent,
+    AdminTemplateComponent,
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
